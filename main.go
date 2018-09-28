@@ -3,31 +3,25 @@ package main
 import (
 	"./geohash"
 	"fmt"
-	"math"
+	"time"
 )
-func main(){
+
+func main() {
 
 	var box *geohash.Box
-	var sgeohash string
-	var precision float64 = 0.01
-	var hashprecision int = 6
-
-	tollhash, box := geohash.Encode(-37.82496,144.97083,  hashprecision )
-
-	width := box.Width()
-	height := box.Height()
-
-	fmt.Println("toll geohash:", tollhash, "width:", width, "height:", height)
+	var precision float64 = 0.01 //精度的上限,格子不能全部超出该范围 0.01(889-1113m)  0.001(88.9-111.3m)
+	var hashprecision int = 6    //精度的下线,一个格子代表的面积    6(1223*488)  7(150*120)
 
 	mylat := -37.82496
 	mylon := 144.98083
-	precision = math.Max(precision, width)
-	for i:=mylat-precision;i<=mylat+precision;i+=height{
-		for j:=mylon-precision;j<=mylon+precision;j+=width {
-			sgeohash, _ = geohash.Encode(i,j,hashprecision)
-			fmt.Println(sgeohash, i, j)
-		}
-	}
+
+	fmt.Println(time.Now())
+	tollhash, box := geohash.Encode(mylat, mylon, hashprecision)
+
+	fmt.Println("toll geohash:", tollhash, "width:", box.Width(), "height:", box.Height())
+
+	geohash.GetNearGeoHash(mylat, mylon, precision, hashprecision)
+	fmt.Println(time.Now())
 
 	return
 }

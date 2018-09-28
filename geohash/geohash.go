@@ -1,9 +1,13 @@
 package geohash
 
-import "bytes"
+import (
+	"bytes"
+	"fmt"
+	"math"
+)
 
 const (
-	BASE32  = "0123456789bcdefghjkmnpqrstuvwxyz"
+	BASE32                = "0123456789bcdefghjkmnpqrstuvwxyz"
 	MAX_LATITUDE  float64 = 90
 	MIN_LATITUDE  float64 = -90
 	MAX_LONGITUDE float64 = 180
@@ -26,6 +30,24 @@ func (this *Box) Width() float64 {
 
 func (this *Box) Height() float64 {
 	return this.MaxLat - this.MinLat
+}
+
+// 输入值: 纬度, 经度, 精度(经纬度,最终取max(width, precision)), 精度(geohash的长度)
+// 返回geohash, 以及该点精度范围内的geohash
+func GetNearGeoHash(latitude, longitude, precision float64, hashprecision int) {
+	var sgeohash string
+
+	_, box := Encode(latitude, longitude, hashprecision)
+	width := box.Width()
+	height := box.Height()
+
+	precision = math.Max(precision, width)
+	for i := latitude - precision; i <= latitude+precision; i += height {
+		for j := longitude - precision; j <= longitude+precision; j += width {
+			sgeohash, _ = Encode(i, j, hashprecision)
+			fmt.Printf("%f,%f  [%s]\n", j, i, sgeohash)
+		}
+	}
 }
 
 // 输入值：纬度，经度，精度(geohash的长度)
