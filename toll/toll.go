@@ -3,10 +3,12 @@ package toll
 import (
 	"encoding/json"
 	"fmt"
+	"sync"
+	"time"
 
 	"io/ioutil"
 	"path"
-
+	"go.intra.xiaojukeji.com/gulfstream/plutus/common/helpers"
 	"../geohash"
 )
 
@@ -58,11 +60,24 @@ type SignedToll struct {
 	Box  *geohash.Box
 }
 
+var globalGeolock *sync.RWMutex
 var globalGeoHashMap map[string][]*SignedToll
 
 func init() {
-	globalGeoHashMap = make(map[string][]*SignedToll)
-	LoadBrTolls("./conf/tolls")
+	globalGeolock = &sync.RWMutex{}
+
+	updateGlobalGeoHashMap := func() {
+		for {
+			globalGeolock.Lock()
+			globalGeoHashMap = make(map[string][]*SignedToll)
+			LoadBrTolls("./conf/tolls")
+			globalGeolock.Unlock()
+
+			time.Sleep(30* time.Second)
+		}
+
+	}
+	go updateGlobalGeoHashMap()
 }
 
 func (s *SignedToll) siteString() string {
@@ -90,6 +105,9 @@ func (s *SignedToll) point() (float64, float64) {
 }
 
 func Debug(tollid, site int) {
+	globalGeolock.RLock()
+	defer globalGeolock.RUnlock()
+
 	for geohash, signedtolls := range globalGeoHashMap {
 		for _, signedtoll := range signedtolls {
 			if (tollid == signedtoll.Toll.Id && site == signedtoll.Site) || tollid == 0 {
@@ -107,6 +125,9 @@ func Debug(tollid, site int) {
 
 func GetTolls(latitude, longitude float64) []*SignedToll {
 	hash, _ := geohash.Encode(latitude, longitude, hashprecision)
+
+	globalGeolock.RLock()
+	defer globalGeolock.RUnlock()
 	v, ok := globalGeoHashMap[hash]
 	if !ok {
 		return nil

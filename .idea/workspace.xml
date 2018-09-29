@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0f3dc8e-22a7-4e8b-afbd-e432868bb82d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geohash/geohash.go" beforeDir="false" afterPath="$PROJECT_DIR$/geohash/geohash.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    <list default="true" id="b0f3dc8e-22a7-4e8b-afbd-e432868bb82d" name="Default Changelist" comment="点位置的判断">
+      <change beforePath="$PROJECT_DIR$/toll/toll.go" beforeDir="false" afterPath="$PROJECT_DIR$/toll/toll.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +28,7 @@
     <session id="1094949400">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -41,25 +39,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="4466" />
-          <entry key="txt" value="14" />
+          <entry key="go" value="4707" />
+          <entry key="txt" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="4466" />
-          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="Go" value="4707" />
+          <entry key="PLAIN_TEXT" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="7" />
+          <entry key="go" value="8" />
           <entry key="json" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="7" />
+          <entry key="Go" value="8" />
           <entry key="JSON" value="2" />
         </counts>
       </usages-collector>
@@ -91,11 +89,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toll/toll.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="661">
+              <caret line="201" column="10" lean-forward="true" selection-start-line="201" selection-start-column="10" selection-end-line="201" selection-end-column="10" />
+              <folding>
+                <element signature="e#14#80#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/tolls/AU.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="28633">
               <caret line="1507" column="40" selection-start-line="1507" selection-start-column="30" selection-end-line="1507" selection-end-column="40" />
             </state>
           </provider>
@@ -130,13 +131,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="384">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding>
-                <element signature="e#14#52#0" expanded="true" />
+                <element signature="e#14#62#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,9 +161,9 @@
       <find>bit</find>
       <find>hashprecision</find>
       <find>109</find>
-      <find>globalGeoHashMap</find>
       <find>144.965912</find>
       <find>GetNearGeoHash</find>
+      <find>globalGeoHashMap</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -181,8 +182,8 @@
       <list>
         <option value="$PROJECT_DIR$/server.go" />
         <option value="$PROJECT_DIR$/test.go" />
-        <option value="$PROJECT_DIR$/geohash/geohash.go" />
         <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/geohash/geohash.go" />
         <option value="$PROJECT_DIR$/toll/toll.go" />
       </list>
     </option>
@@ -196,8 +197,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1440" />
     <option name="y" value="-157" />
-    <option name="width" value="1920" />
-    <option name="height" value="1021" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -213,17 +214,6 @@
             <path>
               <item name="gotest" type="b2602c69:ProjectViewProjectNode" />
               <item name="gotest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gotest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gotest" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gotest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gotest" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
-              <item name="tolls" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gotest" type="b2602c69:ProjectViewProjectNode" />
@@ -312,13 +302,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49946752" visible="true" weight="0.48977396" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946752" weight="0.23466092" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32953367" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39792746" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3972013" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005325" side_tool="true" weight="0.40518135" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -370,7 +360,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="获取相邻的格子" />
-    <option name="LAST_COMMIT_MESSAGE" value="获取相邻的格子" />
+    <MESSAGE value="点位置的判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="点位置的判断" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -415,13 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/go/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="570" lean-forward="true" selection-start-line="570" selection-end-line="570" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/go/src/go.intra.xiaojukeji.com/gulfstream/plutus/common/helpers/poi.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -436,6 +420,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conf/tolls/AU.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28633">
+          <caret line="1507" column="40" selection-start-line="1507" selection-start-column="30" selection-end-line="1507" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/geohash/geohash.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -446,27 +437,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/tolls/AU.json">
+    <entry file="file:///usr/local/go/src/runtime/panic.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="1507" column="40" selection-start-line="1507" selection-start-column="30" selection-end-line="1507" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#14#52#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="447">
+          <caret line="575" column="16" lean-forward="true" selection-start-line="575" selection-start-column="16" selection-end-line="575" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/toll/toll.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="661">
+          <caret line="201" column="10" lean-forward="true" selection-start-line="201" selection-start-column="10" selection-end-line="201" selection-end-column="10" />
+          <folding>
+            <element signature="e#14#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
