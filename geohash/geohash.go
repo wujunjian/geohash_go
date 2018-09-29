@@ -24,6 +24,11 @@ type Box struct {
 	MinLng, MaxLng float64 // 经度
 }
 
+type HashBox struct {
+	Box  *Box
+	Hash string
+}
+
 func (this *Box) Width() float64 {
 	return this.MaxLng - this.MinLng
 }
@@ -32,22 +37,33 @@ func (this *Box) Height() float64 {
 	return this.MaxLat - this.MinLat
 }
 
+func Debug(latitude, longitude float64, hashprecision int) {
+	hash, box := Encode(latitude, longitude, hashprecision)
+	fmt.Printf("hash=%s||lng&lat=%.8f,%.8f||box=[%.8f,%.8f;%.8f,%.8f;%.8f,%.8f;%.8f,%.8f]\n",
+		hash, longitude, latitude,
+		box.MaxLng, box.MaxLat,
+		box.MinLng, box.MaxLat,
+		box.MaxLng, box.MinLat,
+		box.MinLng, box.MinLat)
+}
+
 // 输入值: 纬度, 经度, 精度(经纬度,最终取max(width, precision)), 精度(geohash的长度)
 // 返回geohash, 以及该点精度范围内的geohash
-func GetNearGeoHash(latitude, longitude, precision float64, hashprecision int) {
-	var sgeohash string
+func GetNearGeoHash(latitude, longitude, precision float64, hashprecision int) []*HashBox {
+	var hashboxs []*HashBox
 
 	_, box := Encode(latitude, longitude, hashprecision)
 	width := box.Width()
 	height := box.Height()
 
 	precision = math.Max(precision, width)
-	for i := latitude - precision; i <= latitude+precision; i += height {
-		for j := longitude - precision; j <= longitude+precision; j += width {
-			sgeohash, _ = Encode(i, j, hashprecision)
-			fmt.Printf("%f,%f  [%s]\n", j, i, sgeohash)
+	for i := latitude - precision; i < latitude+precision+height; i += height {
+		for j := longitude - precision; j < longitude+precision+width; j += width {
+			TmpSgeohash, b := Encode(i, j, hashprecision)
+			hashboxs = append(hashboxs, &HashBox{Box: b, Hash: TmpSgeohash})
 		}
 	}
+	return hashboxs
 }
 
 // 输入值：纬度，经度，精度(geohash的长度)
