@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"sync/atomic"
+	"testing"
 	"time"
 
 	"go.intra.xiaojukeji.com/gulfstream/plutus/thirdparty/neweta/base"
@@ -57,7 +58,7 @@ func atomictest() {
 
 }
 
-func mclient() {
+func TestClient(t *testing.T) {
 	for {
 
 		testclient(1500)
@@ -70,7 +71,7 @@ func mclient() {
 }
 
 //Testdecodeplyline decode poly line
-func Testdecodeplyline() {
+func TestDecodeplyline(t *testing.T) {
 
 	fmt.Println("begin")
 

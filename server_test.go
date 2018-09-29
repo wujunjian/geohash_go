@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"testing"
 	"time"
 )
 
 //Testmain server
-func Testmain() {
+func TestMain(t *testing.T) {
 	http.HandleFunc("/hello",
 		func(w http.ResponseWriter, req *http.Request) {
 			time.Sleep(1 * time.Second)
