@@ -8,7 +8,6 @@ import (
 
 	"io/ioutil"
 	"path"
-	"go.intra.xiaojukeji.com/gulfstream/plutus/common/helpers"
 	"../geohash"
 )
 
