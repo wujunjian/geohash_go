@@ -25,3 +25,17 @@ func TestIntersect(t *testing.T) {
 	D := point{1, 0.5}
 	fmt.Println(intersect(&A, &B, &C, &D))
 }
+
+func TestInrail(t *testing.T) {
+
+	A := point{40.082274, 116.339808}
+	B := point{39.922376, 116.949549}
+	C := point{39.491324, 116.499109}
+	D := point{39.660685, 115.817957}
+
+	E := point{39.795876, 116.466150}
+
+	rail := make([]*point, 0)
+	rail = append(rail, &A, &B, &C, &D, &A)
+	fmt.Println(inrail(&E, &B, rail))
+}
