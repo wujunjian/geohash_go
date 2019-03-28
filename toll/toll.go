@@ -11,7 +11,6 @@ import (
 	"path"
 
 	"../geohash"
-	"go.intra.xiaojukeji.com/gulfstream/plutus/common/helpers"
 )
 
 const (
